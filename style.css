@@ -88,40 +88,51 @@ h1.wordmark {
   font-weight: 700;
 }
 
-/* Product cards */
+/* Product rows */
 .products {
   display: flex;
   flex-direction: column;
-  gap: 22px;
-  padding: 0 16px;
+  gap: 14px;
 }
 
 .card {
   background: var(--card);
-  border-radius: 18px;
-  overflow: hidden;
+  border-radius: 16px;
   color: var(--green-dark);
-  text-align: center;
-  padding-bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
 }
 
 .card img {
-  width: 100%;
-  display: block;
+  width: 84px;
+  height: 84px;
+  object-fit: contain;
   background: #fff;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.card .info {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
 }
 
 .card h2 {
-  font-size: 1.15rem;
+  font-size: 0.86rem;
   font-weight: 700;
-  padding: 16px 20px 4px;
+  line-height: 1.25;
+  padding: 0;
 }
 
 .card p.blurb {
-  font-size: 0.9rem;
+  font-size: 0.74rem;
   font-weight: 500;
   color: #4a6b58;
-  padding: 0 20px 14px;
+  line-height: 1.35;
+  padding: 4px 0 0;
 }
 
 a.buy {
@@ -130,13 +141,18 @@ a.buy {
   color: var(--white);
   text-decoration: none;
   font-weight: 700;
-  font-size: 1rem;
-  padding: 13px 34px;
+  font-size: 0.72rem;
+  line-height: 1.2;
+  padding: 10px 14px;
   border-radius: 999px;
+  text-align: center;
+  flex-shrink: 0;
 }
 
 .card.soon {
-  padding: 40px 20px;
+  display: block;
+  text-align: center;
+  padding: 28px 20px;
   font-weight: 600;
   color: #4a6b58;
 }
