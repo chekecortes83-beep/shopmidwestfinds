@@ -195,3 +195,42 @@ details.cat .products {
 
 details.cat[open] .chev { transform: rotate(180deg); }
 
+
+/* Top Picks wheel */
+.toppicks { padding: 0 16px; margin-bottom: 34px; }
+
+h2.picks-title {
+  text-align: center;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+
+.wheel-wrap { position: relative; }
+
+.wheel {
+  height: 206px;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 42px 0;
+  scrollbar-width: none;
+}
+.wheel::-webkit-scrollbar { display: none; }
+
+.wheel .card { scroll-snap-align: center; flex-shrink: 0; }
+
+.wheel-fade {
+  position: absolute;
+  left: 0; right: 0;
+  height: 54px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.wheel-fade.top { top: 0; background: linear-gradient(to bottom, var(--green-dark) 25%, rgba(27,69,47,0)); }
+.wheel-fade.bottom { bottom: 0; background: linear-gradient(to top, var(--green-dark) 25%, rgba(27,69,47,0)); }
+.wheel-fade.on { opacity: 1; }
