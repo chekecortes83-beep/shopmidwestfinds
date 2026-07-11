@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>PREVIEW — midwestfinds — Kitchen, Pet, Home &amp; Tech Finds</title>
+<meta name="description" content="Hand-picked kitchen, pet, home, and tech finds from midwestfinds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+  <div class="hero"><img src="assets/hero.webp" alt="midwestfinds gold star logo"></div>
+  <h1 class="wordmark">midwestfinds</h1>
+
+  <div class="toppicks">
+    <h2 class="picks-title">Top Picks</h2>
+    <div class="wheel-wrap">
+      <div class="wheel" id="wheel">
+        <div class="card">
+          <img src="assets/cutting-board.webp" alt="Extra-large stainless steel cutting board">
+          <div class="info">
+            <h2>Extra-Large Stainless Steel Cutting Board</h2>
+            <p class="blurb">No microplastics, no odors, non-slip lip. Rinse and done.</p>
+          </div>
+          <a class="buy" href="https://amzn.to/4vVfd8n" rel="nofollow sponsored">Shop on<br>Amazon</a>
+        </div>
+        <div class="card">
+          <img src="assets/cutting-board.webp" alt="Extra-large stainless steel cutting board">
+          <div class="info">
+            <h2>Demo Product 2 (placeholder)</h2>
+            <p class="blurb">No microplastics, no odors, non-slip lip. Rinse and done.</p>
+          </div>
+          <a class="buy" href="https://amzn.to/4vVfd8n" rel="nofollow sponsored">Shop on<br>Amazon</a>
+        </div>
+        <div class="card">
+          <img src="assets/cutting-board.webp" alt="Extra-large stainless steel cutting board">
+          <div class="info">
+            <h2>Demo Product 3 (placeholder)</h2>
+            <p class="blurb">No microplastics, no odors, non-slip lip. Rinse and done.</p>
+          </div>
+          <a class="buy" href="https://amzn.to/4vVfd8n" rel="nofollow sponsored">Shop on<br>Amazon</a>
+        </div>
+        <div class="card">
+          <img src="assets/cutting-board.webp" alt="Extra-large stainless steel cutting board">
+          <div class="info">
+            <h2>Demo Product 4 (placeholder)</h2>
+            <p class="blurb">No microplastics, no odors, non-slip lip. Rinse and done.</p>
+          </div>
+          <a class="buy" href="https://amzn.to/4vVfd8n" rel="nofollow sponsored">Shop on<br>Amazon</a>
+        </div>
+      </div>
+      <div class="wheel-fade top"></div>
+      <div class="wheel-fade bottom"></div>
+    </div>
+  </div>
+
+  <div class="tiles">
+
+    <details class="cat" id="kitchen">
+      <summary class="tile">
+        <img src="assets/kitchen.webp" alt="Kitchen">
+        <span class="label">Kitchen Finds <span class="chev">▾</span></span>
+      </summary>
+      <div class="products">
+        <div class="card">
+          <img src="assets/cutting-board.webp" alt="Extra-large stainless steel cutting board">
+          <div class="info">
+            <h2>Extra-Large Stainless Steel Cutting Board</h2>
+            <p class="blurb">No microplastics, no odors, non-slip lip. Rinse and done.</p>
+          </div>
+          <a class="buy" href="https://amzn.to/4vVfd8n" rel="nofollow sponsored">Shop on<br>Amazon</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="cat" id="pets">
+      <summary class="tile">
+        <img src="assets/pets.webp" alt="Pets">
+        <span class="label">Pet Finds <span class="chev">▾</span></span>
+      </summary>
+      <div class="products">
+        <div class="card soon">New finds coming soon 👀</div>
+      </div>
+    </details>
+
+    <details class="cat" id="home">
+      <summary class="tile">
+        <img src="assets/home.webp" alt="Home">
+        <span class="label">Home Finds <span class="chev">▾</span></span>
+      </summary>
+      <div class="products">
+        <div class="card soon">New finds coming soon 👀</div>
+      </div>
+    </details>
+
+    <details class="cat" id="tech">
+      <summary class="tile">
+        <img src="assets/tech.webp" alt="Tech">
+        <span class="label">Tech Finds <span class="chev">▾</span></span>
+      </summary>
+      <div class="products">
+        <div class="card soon">New finds coming soon 👀</div>
+      </div>
+    </details>
+
+  </div>
+
+  <footer>As an Amazon Associate I earn from qualifying purchases.</footer>
+</div>
+<script>
+  // open a category when arriving via old links like /kitchen.html -> /#kitchen
+  var h = location.hash.slice(1);
+  var el = h && document.getElementById(h);
+  if (el && el.tagName === 'DETAILS') { el.open = true; el.scrollIntoView(); }
+
+  // Top Picks wheel: show fades only when more content exists in that direction
+  var wheel = document.getElementById('wheel');
+  var fadeTop = document.querySelector('.wheel-fade.top');
+  var fadeBottom = document.querySelector('.wheel-fade.bottom');
+  function fades() {
+    var canScroll = wheel.scrollHeight > wheel.clientHeight + 4;
+    fadeTop.classList.toggle('on', canScroll && wheel.scrollTop > 8);
+    fadeBottom.classList.toggle('on', canScroll && wheel.scrollTop < wheel.scrollHeight - wheel.clientHeight - 8);
+  }
+  wheel.addEventListener('scroll', fades, {passive: true});
+  window.addEventListener('resize', fades);
+  fades();
+</script>
+</body>
+</html>
