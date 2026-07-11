@@ -63,7 +63,7 @@ h1.wordmark {
   padding: 0 16px;
 }
 
-a.tile {
+.tile {
   display: flex;
   border-radius: 18px;
   overflow: hidden;
@@ -160,3 +160,22 @@ footer {
   padding: 36px 24px 0;
   line-height: 1.5;
 }
+
+/* Accordion categories */
+html { scroll-behavior: smooth; }
+
+details.cat summary { list-style: none; cursor: pointer; }
+details.cat summary::-webkit-details-marker { display: none; }
+
+details.cat .products {
+  padding: 18px 0 6px;
+}
+
+.chev {
+  display: inline-block;
+  margin-left: 8px;
+  transition: transform 0.25s ease;
+}
+
+details.cat[open] .chev { transform: rotate(180deg); }
+
