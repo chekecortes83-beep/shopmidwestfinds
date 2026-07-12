@@ -234,3 +234,57 @@ h2.picks-title {
 .wheel-fade.top { top: 0; background: linear-gradient(to bottom, var(--green-dark) 25%, rgba(27,69,47,0)); }
 .wheel-fade.bottom { bottom: 0; background: linear-gradient(to top, var(--green-dark) 25%, rgba(27,69,47,0)); }
 .wheel-fade.on { opacity: 1; }
+
+/* Social icons row */
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  margin: -6px 0 26px;
+  position: relative;
+  z-index: 2;
+}
+.socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: rgba(144,203,128,0.14);
+}
+.socials svg { width: 21px; height: 21px; fill: var(--green-tile); }
+
+/* Latest videos */
+.latest { padding: 40px 16px 0; }
+h2.latest-title {
+  text-align: center;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.latest-grid { display: flex; gap: 12px; }
+.latest-grid a {
+  position: relative;
+  flex: 1;
+  border-radius: 14px;
+  overflow: hidden;
+  display: block;
+}
+.latest-grid img { width: 100%; display: block; }
+.latest-grid .play {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.latest-grid .play span {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(0,0,0,0.45);
+  display: flex; align-items: center; justify-content: center;
+}
+.latest-grid .play span::after {
+  content: '';
+  margin-left: 4px;
+  border-left: 14px solid #fff;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+}
