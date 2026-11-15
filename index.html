@@ -147,5 +147,24 @@
   window.addEventListener('resize', fades);
   fades();
 </script>
+<script>
+/* Per-platform Amazon tracking (2026-11-14): bio links carry ?src=tt|ig|fb|th|yt|pin|cmt.
+   The matching Associates tag replaces shopmw-site-20 on every Amazon link, so the
+   orders report shows which platform drove each sale. Remembered for 30 days. */
+(function () {
+  var TAGS = {tt: "shopmw-tt-20", ig: "shopmw-ig-20", fb: "shopmw-fb-20", th: "shopmw-th-20",
+              yt: "shopmw-yt-20", pin: "shopmw-pin-20", cmt: "shopmw-cmt-20"};
+  var src = new URLSearchParams(location.search).get("src");
+  try {
+    if (src && TAGS[src]) localStorage.setItem("mw_src", JSON.stringify({s: src, t: Date.now()}));
+    else { var m = JSON.parse(localStorage.getItem("mw_src") || "null");
+           if (m && Date.now() - m.t < 30 * 864e5) src = m.s; }
+  } catch (e) {}
+  if (!src || !TAGS[src]) return;
+  document.querySelectorAll('a[href*="amazon.com/"]').forEach(function (a) {
+    a.href = a.href.replace(/tag=shopmw-site-20/, "tag=" + TAGS[src]);
+  });
+})();
+</script>
 </body>
 </html>
