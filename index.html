@@ -202,7 +202,7 @@
 (function () {
   var TAGS = {tt: "shopmw-tt-20", ig: "shopmw-ig-20", fb: "shopmw-fb-20", th: "shopmw-th-20",
               yt: "shopmw-yt-20", pin: "shopmw-pin-20", cmt: "shopmw-cmt-20"};
-  var src = new URLSearchParams(location.search).get("src");
+  var qs = new URLSearchParams(location.search); var src = qs.get("src") || qs.get("s");  // bio links use ?s=tt|ig|fb
   try {
     if (src && TAGS[src]) localStorage.setItem("mw_src", JSON.stringify({s: src, t: Date.now()}));
     else { var m = JSON.parse(localStorage.getItem("mw_src") || "null");
